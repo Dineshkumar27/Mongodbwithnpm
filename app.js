@@ -14,7 +14,39 @@ const fruit=new Fruit({
     rating:6,
     review:"its tasty"
 });
-//fruit.save();
+
+
+const watermelon=new Fruit({
+    name:"Watermelon",
+    rating:9,
+    review:"its juicy"
+});
+
+const banana=new Fruit({
+    name:"Banana",
+    rating:8,
+    review:"its sweety"
+});
+
+const dragon=new Fruit({
+    name:"Dragon",
+    rating:7,
+    review:"Less tasty"
+});
+
+
+Fruit.insertMany([watermelon,banana,dragon],function(err){
+    if(err){
+        console.log("Error in inserting")
+    }
+    else{
+        console.log("Successfully saved")
+    }
+
+})
+
+
+
 const personSchema=new mongoose.Schema({
     name : String,
     age : Number,
