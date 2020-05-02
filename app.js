@@ -14,8 +14,18 @@ const fruit=new Fruit({
     rating:6,
     review:"its tasty"
 });
-fruit.save();
-
+//fruit.save();
+const personSchema=new mongoose.Schema({
+    name : String,
+    age : Number,
+    
+});
+const Person=mongoose.model("Person",fruitSchema);
+const person=new person({
+    name:"JOhn",
+    age:26    
+});
+person.save();
   const findDocuments = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('fruits');
