@@ -50,6 +50,7 @@ Fruit.find(function(err,fruits){
         console.log(err);
     }
     else{
+        mongoose.connection.close();//it will close the collection automatically in the console
        // console.log(fruits)
        fruits.forEach(function(fruit){
             console.log(fruit.name);
