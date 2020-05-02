@@ -52,21 +52,6 @@ const fruit=new Fruit({
 
 // })
 
-Fruit.find(function(err,fruits){
-    if(err){
-        console.log(err);
-    }
-    else{
-        mongoose.connection.close();//it will close the collection automatically in the console
-       // console.log(fruits)
-       fruits.forEach(function(fruit){
-            console.log(fruit.name);
-            
-       })
-    }
-        
-
-    })
 
 
 
@@ -97,14 +82,52 @@ const findDocuments = function(db, callback) {
   }
 //UpdateMany and UpdateOne
 
-Fruit.updateOne({_id:"5ead625068471b75f87c5a29"},{name:"Peach"},function(err){
+// Fruit.updateOne({_id:"5ead625068471b75f87c5a29"},{name:"Peach"},function(err){
+//     if(err){
+//         console.log(err);
+        
+//     }
+//     else{
+//         console.log("Successfully Updated");
+        
+//     }
+
+// });
+
+// Fruit.deleteOne({_id:"5ead2651b5408c4af80d3cc4"},function(err){
+//     if(err){
+//         console.log(err);
+        
+//     }
+//     else{
+//         console.log("Successfully Deleted from Table");
+        
+//     }
+// });
+
+Fruit.deleteMany({ name: "Apple"}, function (err) {
     if(err){
         console.log(err);
         
     }
     else{
-        console.log("Successfully Updated");
-        
+        console.log("Successfully Deleted Many from Table");
     }
-
 });
+
+
+Fruit.find(function(err,fruits){
+    if(err){
+        console.log(err);
+    }
+    else{
+        mongoose.connection.close();//it will close the collection automatically in the console
+       // console.log(fruits)
+       fruits.forEach(function(fruit){
+            console.log(fruit.name);
+            
+       })
+    }
+        
+
+    })
