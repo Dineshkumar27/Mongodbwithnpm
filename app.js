@@ -21,7 +21,7 @@ const fruit=new Fruit({
     rating:9,
     review:"its tasty"
 });
-fruit.save();
+//fruit.save();
 
 // const watermelon=new Fruit({
 //     name:"Watermelon",
@@ -95,3 +95,16 @@ const findDocuments = function(db, callback) {
       callback(fruits);
     });
   }
+//UpdateMany and UpdateOne
+
+Fruit.updateOne({_id:"5ead625068471b75f87c5a29"},{name:"Peach"},function(err){
+    if(err){
+        console.log(err);
+        
+    }
+    else{
+        console.log("Successfully Updated");
+        
+    }
+
+});
