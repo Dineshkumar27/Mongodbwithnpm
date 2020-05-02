@@ -3,36 +3,43 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB",{ useUnifiedTopology: true
 
 
 const fruitSchema=new mongoose.Schema({
-    name : String,
-    rating : Number,
+    name : {
+        type : String,
+        required: true
+    },
+    rating :{
+        type:Number,
+        min:1,
+        max:10,
+    },
     review : String
 });
 
 const Fruit=mongoose.model("Fruit",fruitSchema);
 const fruit=new Fruit({
-    name:"Apple",
-    rating:6,
+    name:"Sweet Lime",
+    rating:9,
     review:"its tasty"
 });
+fruit.save();
 
+// const watermelon=new Fruit({
+//     name:"Watermelon",
+//     rating:9,
+//     review:"its juicy"
+// });
 
-const watermelon=new Fruit({
-    name:"Watermelon",
-    rating:9,
-    review:"its juicy"
-});
+// const banana=new Fruit({
+//     name:"Banana",
+//     rating:8,
+//     review:"its sweety"
+// });
 
-const banana=new Fruit({
-    name:"Banana",
-    rating:8,
-    review:"its sweety"
-});
-
-const dragon=new Fruit({
-    name:"Dragon",
-    rating:7,
-    review:"Less tasty"
-});
+// const dragon=new Fruit({
+//     name:"Dragon",
+//     rating:7,
+//     review:"Less tasty"
+// });
 
 
 // Fruit.insertMany([watermelon,banana,dragon],function(err){
@@ -74,8 +81,10 @@ const person=new Person({
     name:"JOhn",
     age:26    
 });
-person.save();
-  const findDocuments = function(db, callback) {
+
+//person.save();
+
+const findDocuments = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('fruits');
     // Find some documents
