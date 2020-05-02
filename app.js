@@ -20,8 +20,8 @@ const personSchema=new mongoose.Schema({
     age : Number,
     
 });
-const Person=mongoose.model("Person",fruitSchema);
-const person=new person({
+const Person=mongoose.model("Person",personSchema);
+const person=new Person({
     name:"JOhn",
     age:26    
 });
