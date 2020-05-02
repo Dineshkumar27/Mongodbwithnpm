@@ -35,15 +35,31 @@ const dragon=new Fruit({
 });
 
 
-Fruit.insertMany([watermelon,banana,dragon],function(err){
+// Fruit.insertMany([watermelon,banana,dragon],function(err){
+//     if(err){
+//         console.log("Error in inserting")
+//     }
+//     else{
+//         console.log("Successfully saved")
+//     }
+
+// })
+
+Fruit.find(function(err,fruits){
     if(err){
-        console.log("Error in inserting")
+        console.log(err);
     }
     else{
-        console.log("Successfully saved")
+       // console.log(fruits)
+       fruits.forEach(function(fruit){
+            console.log(fruit.name);
+            
+       })
     }
+        
 
-})
+    })
+
 
 
 
